@@ -1,74 +1,99 @@
-# ⚠️ Importante!!!
-Você pode escolher qualquer um dos desafios para desenvolver. Sinta-se à vontade para começar pelo desafio que mais lhe interessa.
+# Super Trunfo - Comparação Avançada de Cartas (Nível Mestre)
 
-# Desafio Super Trunfo - Países - Comparação das Cartas
+Este é um programa em C que implementa um jogo de Super Trunfo entre duas cartas de países. O jogador pode escolher **dois atributos diferentes** para comparar as cartas e determinar o vencedor. O programa inclui regras especiais para a densidade demográfica e trata empates de forma clara.
 
-Bem-vindo ao desafio "Super Trunfo - Países"! Neste projeto, você desenvolverá um sistema para comparar cartas baseadas em atributos de cidades. O desafio é dividido em três níveis: Novato, Aventureiro e Mestre. Cada nível adiciona novas funcionalidades e complexidades, permitindo um aprendizado progressivo.
+## Requisitos
 
-## 🏅 Nível Novato
+* Sistema com compilador C (GCC ou similar)
+* Terminal ou console para executar o programa
 
-No nível Novato, você começará implementando a lógica básica de comparação entre cartas utilizando estruturas de decisão `if` e `if-else`.
+## Arquivo
 
-### 🚩 Objetivos:
-- **Cadastro de Cartas:** O sistema permitirá ao usuário cadastrar cartas de cidades, incluindo informações como estado, código da carta, nome da cidade, população, área, PIB e número de pontos turísticos.
-- **Comparação de Cartas:** O sistema comparará os atributos de duas cartas e determinará a vencedora com base em uma propriedade específica (população, área, PIB, etc.), escolhida no código.
-- **Exibição de Resultados:** Após a comparação, o sistema exibirá qual carta venceu com base na regra: maior valor vence, exceto em densidade populacional, onde o menor valor é o vencedor.
+* `main.c` - Contém todo o código fonte do jogo.
 
-### 📥 Entrada de Dados:
-- Os dados das cartas serão inseridos manualmente via terminal.
-- O sistema solicitará interativamente as informações de cada carta.
+## Compilação
 
-### 📤 Saída de Dados:
-- Após o cadastro, as propriedades da cidade serão exibidas de forma organizada.
-- O resultado da comparação será mostrado, indicando a carta vencedora.
+Para compilar o programa usando GCC, abra o terminal na pasta onde está o arquivo `main.c` e execute:
+
+```bash
+gcc main.c -o supertrunfo
+```
+
+Isso criará um executável chamado `supertrunfo`.
+
+## Execução
+
+Após compilar, execute o programa com:
+
+```bash
+./supertrunfo
+```
+
+No Windows, o comando será:
+
+```cmd
+supertrunfo.exe
+```
+
+## Uso
+
+1. O programa exibirá um menu para o jogador escolher o **primeiro atributo** para a comparação.
+2. Após a escolha, um segundo menu será exibido, **excluindo o atributo já escolhido**, para selecionar o segundo atributo.
+3. O programa calculará a vitória de cada carta com base nos dois atributos escolhidos, considerando que:
+
+   * Para todos os atributos, vence o **maior valor**.
+   * Para Densidade Demográfica, vence o **menor valor**.
+4. Será exibido o resultado detalhado, incluindo:
+
+   * Nomes das cartas
+   * Valores dos atributos escolhidos
+   * Soma das vitórias por atributo
+   * Carta vencedora final ou mensagem de empate
+
+## Observações
+
+* Certifique-se de digitar apenas números válidos do menu (1 a 5).
+* O programa trata automaticamente escolhas inválidas ou duplicadas.
+* É possível modificar as cartas alterando os valores no arquivo `main.c`.
+
+## Exemplo de Saída
+
+```
+Escolha um atributo:
+1 - Populacao
+2 - Area
+3 - PIB
+4 - Numero de pontos turistico
+5 - Densidade demografica
+Opcao: 1
+
+Escolha o segundo atributo:
+1 - Populacao
+2 - Area
+3 - PIB
+4 - Numero de pontos turistico
+5 - Densidade demografica
+Opcao: 2
+
+Comparacao de cartas:
+Carta 1 - Brasil
+Carta 2 - Argentina
+
+Atributo 1: Populacao
+Carta 1: 213000000.00
+Carta 2: 45100000.00
+
+Atributo 2: Area
+Carta 1: 8515767.00
+Carta 2: 2780400.00
+
+Soma de vitorias por atributo:
+Carta 1: 2
+Carta 2: 0
+
+Resultado final: Carta 1 (Brasil) venceu!
+```
 
 ---
 
-## 🏅 Nível Aventureiro
-
-No nível Aventureiro, você expandirá o sistema para incluir a comparação aninhada e a criação de um menu interativo usando `switch`.
-
-### 🆕 Diferença em relação ao Nível Novato:
-- **Menu Interativo:** O usuário poderá escolher diferentes atributos para comparação através de um menu.
-- **Comparação Aninhada:** Implementação de lógica de comparação mais complexa, utilizando estruturas aninhadas para tomar decisões baseadas em múltiplos atributos.
-
-### 🚩 Novas Funcionalidades:
-- **Cadastro de Cartas:** Similar ao nível Novato, com a adição de comparação de múltiplos atributos.
-- **Menu Interativo:** Uso de `switch` para criar um menu que permite ao jogador escolher os atributos a serem comparados.
-- **Exibição de Resultados:** O sistema exibirá o resultado da comparação, indicando qual carta venceu e qual atributo foi utilizado.
-
----
-
-## 🏅 Nível Mestre
-
-No nível Mestre, o desafio se intensifica com a adição de funcionalidades avançadas, como menus dinâmicos e lógica de decisão complexa com operadores ternários.
-
-### 🆕 Diferença em relação ao Nível Aventureiro:
-- **Escolha de Dois Atributos:** O usuário poderá escolher dois atributos para comparação entre as cartas.
-- **Lógica de Decisão Complexa:** Implementação de estruturas de decisão aninhadas e encadeadas, além do uso de operadores ternários para determinar a carta vencedora.
-- **Menus Dinâmicos:** Os menus serão dinâmicos, permitindo uma navegação fluida entre as opções de comparação.
-
-### 🚩 Novas Funcionalidades:
-- **Comparação de Dois Atributos:** O sistema comparará dois atributos simultaneamente para determinar a carta vencedora.
-- **Lógica Avançada:** Uso de operadores ternários e lógica aninhada para lidar com comparações complexas.
-- **Empates:** O sistema será capaz de lidar com empates, exibindo mensagens apropriadas.
-- **Exibição de Resultados:** Exibição dos resultados das comparações de forma clara e interativa.
-
----
-
-## 📋 Requisitos Funcionais Comuns
-- **Cadastro de Cartas:** O sistema deve permitir o cadastro de cartas com as informações necessárias.
-- **Comparação:** O sistema deve comparar as cartas e determinar a vencedora com base nas regras estabelecidas.
-- **Exibição de Resultados:** Os resultados devem ser exibidos de forma clara, indicando a carta vencedora.
-
-## 📌 Requisitos Não Funcionais Comuns
-- **Usabilidade:** A interface do usuário deve ser simples e intuitiva.
-- **Performance:** O sistema deve executar operações sem atrasos perceptíveis.
-- **Manutenibilidade:** O código deve ser bem estruturado e documentado.
-- **Confiabilidade:** O sistema deve ser robusto e capaz de lidar com entradas inválidas de forma adequada.
-
----
-
-Boa sorte no desenvolvimento deste desafio e aproveite para aprender e se divertir enquanto progride pelos níveis!
-
-Equipe de Ensino - MateCheck
+Este README fornece todas as instruções necessárias para compilar e executar o programa `main.c` do Super Trunfo nível mestre.
